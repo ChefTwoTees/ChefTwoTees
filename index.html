@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chef Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --tan: #d2b48c;
+      --black: #1c1c1c;
+      --white: #f8f8f8;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--white);
+      color: var(--black);
+      scroll-behavior: smooth;
+    }
+    header {
+      background-color: var(--black);
+      color: var(--tan);
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    nav a {
+      color: var(--tan);
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 4rem 2rem;
+    }
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 1rem;
+    }
+    .about, .services, .contact {
+      background-color: var(--tan);
+      color: var(--black);
+    }
+    .signature-dishes, .gallery {
+      background-color: var(--white);
+    }
+    .dish, .service, .gallery-item {
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+    .fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Chef [Your Name]</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#dishes">Dishes</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>[Your story, culinary background, and philosophy here]</p>
+  </section>
+  <section id="dishes" class="signature-dishes">
+    <h2>Signature Dishes</h2>
+    <div class="dish">[Dish 1 description]</div>
+    <div class="dish">[Dish 2 description]</div>
+    <div class="dish">[Dish 3 description]</div>
+  </section>
+  <section id="services" class="services">
+    <h2>Services</h2>
+    <div class="service">Private Dining</div>
+    <div class="service">Catering</div>
+    <div class="service">Cooking Classes</div>
+  </section>
+  <section id="gallery" class="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-item">[Image Placeholder]</div>
+    <div class="gallery-item">[Image Placeholder]</div>
+    <div class="gallery-item">[Image Placeholder]</div>
+  </section>
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Email: [your.email@example.com]</p>
+    <p>Phone: [your number]</p>
+  </section>
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    document.querySelectorAll('.dish, .service, .gallery-item').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
